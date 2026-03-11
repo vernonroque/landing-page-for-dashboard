@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ProfitDash — Know Your Real E-commerce Profit</title>
+
+<style>
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    background:#f6f8fb;
+    color:#222;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+header{
+    padding:60px 0;
+    text-align:center;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:20px;
+    color:#555;
+}
+
+.hero{
+    text-align:center;
+    padding:40px 0;
+}
+
+.cta-form{
+    margin-top:30px;
+}
+
+input[type="email"]{
+    padding:14px;
+    width:280px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+}
+
+button{
+    padding:14px 20px;
+    font-size:16px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.metrics{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.metric-card{
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    width:200px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.metric-value{
+    font-size:26px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.dashboard{
+    background:white;
+    margin:70px auto;
+    padding:40px;
+    border-radius:10px;
+    max-width:700px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.07);
+}
+
+.problem{
+    background:#ffffff;
+    padding:60px 0;
+}
+
+.problem h2{
+    text-align:center;
+}
+
+.problem-list{
+    max-width:700px;
+    margin:30px auto;
+    font-size:18px;
+}
+
+.problem-list li{
+    margin-bottom:10px;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#777;
+}
+
+.success{
+    display:none;
+    margin-top:20px;
+    color:green;
+}
+
+@media (max-width:700px){
+
+h1{
+    font-size:32px;
+}
+
+input[type="email"]{
+    width:100%;
+    margin-bottom:10px;
+}
+
+button{
+    width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="container">
+<h1>See Your Real E-commerce Profit</h1>
+
+<p class="subtitle">
+Stop optimizing for ROAS. Start optimizing for <strong>profit.</strong>
+</p>
+
+<div class="cta-form">
+
+<form name="waitlist" method="POST" data-netlify="true" id="waitlistForm">
+
+<input type="hidden" name="form-name" value="waitlist">
+
+<input 
+type="email" 
+name="email" 
+placeholder="Enter your email"
+required
+>
+
+<button type="submit">Join Waitlist</button>
+
+</form>
+
+<div class="success" id="successMessage">
+Thanks! We'll notify you when early access opens.
+</div>
+
+</div>
+</header>
+
+<section class="container">
+
+<div class="dashboard">
+
+<h2 style="text-align:center;">Example Dashboard</h2>
+
+<div class="metrics">
+
+<div class="metric-card">
+<div>Revenue</div>
+<div class="metric-value">$52,340</div>
+</div>
+
+<div class="metric-card">
+<div>Ad Spend</div>
+<div class="metric-value">$21,100</div>
+</div>
+
+<div class="metric-card">
+<div>COGS</div>
+<div class="metric-value">$17,400</div>
+</div>
+
+<div class="metric-card">
+<div>Net Profit</div>
+<div class="metric-value">$13,840</div>
+</div>
+
+<div class="metric-card">
+<div>Blended ROAS</div>
+<div class="metric-value">2.48</div>
+</div>
+
+<div class="metric-card">
+<div>Breakeven ROAS</div>
+<div class="metric-value">1.75</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="problem">
+
+<div class="container">
+
+<h2>Why Most Dashboards Are Misleading</h2>
+
+<ul class="problem-list">
+
+<li>Most dashboards show <strong>revenue</strong> and <strong>ROAS</strong>.</li>
+
+<li>But ROAS doesn't show <strong>real profitability</strong>.</li>
+
+<li>You still have <strong>COGS, fees, and ad spend</strong>.</li>
+
+<li>Many stores are scaling ads without knowing their <strong>true profit</strong>.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 ProfitDash</p>
+
+</footer>
+
+<script>
+
+const form = document.getElementById("waitlistForm")
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault()
+
+const data = new FormData(form)
+
+fetch("/",{
+method:"POST",
+body:data
+})
+.then(()=>{
+form.style.display="none"
+document.getElementById("successMessage").style.display="block"
+})
+
+})
+
+</script>
+
+</body>
+</html>
